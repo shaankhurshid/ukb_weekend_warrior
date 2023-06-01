@@ -1,4 +1,4 @@
-# Script for assessing calibration of combined clinical/genetic score
+# Function to split continuous variable into quantiles of specified size
 classifier <- function(risk,ncuts){
   cuts <- quantile(risk,probs=seq(0,1,1/ncuts),na.rm=T)
   index <- rep(NA,length(risk))
@@ -8,7 +8,7 @@ classifier <- function(risk,ncuts){
   return(index)
 }
 
-# Function to generate survival estimates per AF risk quantile
+# Function to generate survival estimates per disease risk quantile
 survivor <- function(data,risk_data,event,time,breakpoint){
   est <- rep(NA,times=length(unique(data[,risk_data])))
   lower <- rep(NA,times=length(unique(data[,risk_data])))
