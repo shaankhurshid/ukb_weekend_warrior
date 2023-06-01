@@ -662,13 +662,13 @@ stroke_set[,":="(mvpa_decile = factor(classifier(mvpa_daily_total,ncuts=10)))]
 
 ### Overall models
 mod_af <- coxph(Surv(time_accel_to_af,incd_af_accel) ~ ww_pattern + age_accel + sex + race_category_adjust +
-                  tob + tdi + etoh_grams + diet + qual_ea + employment_status + self_health + strata(mvpa_decile),data=af_set)
+                  tob + tdi + etoh_grams + diet + qual_ea + employment_status + self_health + factor(strata(mvpa_decile)),data=af_set)
 mod_mi <- coxph(Surv(time_accel_to_mi,incd_mi_accel) ~ ww_pattern + age_accel + sex + race_category_adjust +
-                  tob + tdi + etoh_grams + diet + qual_ea + employment_status + self_health + strata(mvpa_decile),data=mi_set)
+                  tob + tdi + etoh_grams + diet + qual_ea + employment_status + self_health + factor(strata(mvpa_decile)),data=mi_set)
 mod_hf <- coxph(Surv(time_accel_to_hf,incd_hf_accel) ~ ww_pattern + age_accel + sex + race_category_adjust +
-                  tob + tdi + etoh_grams + diet + qual_ea + employment_status + self_health + strata(mvpa_decile),data=hf_set)
+                  tob + tdi + etoh_grams + diet + qual_ea + employment_status + self_health + factor(strata(mvpa_decile)),data=hf_set)
 mod_stroke <- coxph(Surv(time_accel_to_stroke,incd_stroke_accel) ~ ww_pattern + age_accel + sex + race_category_adjust +
-                      tob + tdi + etoh_grams + diet + qual_ea + employment_status + self_health + strata(mvpa_decile),data=stroke_set)
+                      tob + tdi + etoh_grams + diet + qual_ea + employment_status + self_health + factor(strata(mvpa_decile)),data=stroke_set)
 
 ##################### Step 8: 75% sensi analysis (WW defined as >= 75% of total MVPA over 1-2 days)
 complete_time[,':='(ww_pattern75 = ifelse(c((mvpa1+mvpa2 >= mvpa_daily_total*0.75) |
