@@ -1,5 +1,9 @@
 ### Script to perform main weekend warrior activity analyses
+<<<<<<< HEAD
 ### Assumes availability of certain data as flat files (please see README)
+=======
+### Assumes availability of specified fields as flat files (please see README)
+>>>>>>> c22e472ed594a00b060e73cb48b51924a00e64b8
 
 # Dependencies
 library(data.table)
